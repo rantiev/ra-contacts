@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Phone book!</title>
+	<link rel="stylesheet" href="3dParty/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="styles/css/global.css"/>
+</head>
+<body ng-app="phoneBook">
+
+<section class="ra-all">
+
+	<header>
+		<h1>Phone Book!</h1>
+	</header>
+
+	<section class="ra-add" data-ng-controller="MainController as mainCtrl">
+		<h2>New Contact:</h2>
+		<form name="newContact"
+			  novalidate>
+			<div ng-show="newContact.$submitted && newContact.$invalid" class="warning">
+				<p ng-show="newContact.$submitted && newContact.$errors">Please enter right data:</p>
+
+				<p ng-show="newContact.$submitted && newContact.raName.$invalid">Name</p>
+
+				<p ng-show="newContact.$submitted && newContact.raEmail.$invalid">Email</p>
+
+				<p ng-show="newContact.$submitted && newContact.raPhone.$invalid">Phone</p>
+
+				<p ng-show="newContact.$submitted && newContact.raDob.$invalid">Date of Birth</p>
+			</div>
+			<div class="form-group">
+				<input class="form-control"
+					   type="text"
+					   required
+					   minlength="2"
+					   maxlength="50"
+					   name="raName"
+					   id="raName"
+					   placeholder="Name"
+					   data-ng-model="mainCtrl.contact.name"
+						/>
+			</div>
+			<div class="form-group">
+				<input class="form-control"
+					   type="email"
+					   required
+					   minlength="2"
+					   maxlength="50"
+					   name="raEmail"
+					   id="raEmail"
+					   placeholder="Email"
+					   data-ng-model="mainCtrl.contact.email"
+						/>
+			</div>
+			<div class="form-group">
+				<input class="form-control"
+					   type="phone"
+					   required
+					   minlength="2"
+					   maxlength="50"
+					   name="raPhone"
+					   id="raPhone"
+					   placeholder="Phone"
+					   data-ng-model="mainCtrl.contact.phone"
+						/>
+			</div>
+			<div class="form-group">
+				<input class="form-control"
+					   type="date"
+					   required
+					   minlength="2"
+					   maxlength="50"
+					   name="raDob"
+					   id="raDob"
+					   placeholder="Date of Birth"
+					   data-ng-model="mainCtrl.contact.date"
+						/>
+			</div>
+			<div class="form-group">
+				<input data-ng-click="mainCtrl.onSubmit()" class="btn btn-small btn-primary" ng-disabled="newContact.$pristine || newContact.$invalid" type="submit"/>
+			</div>
+		</form>
+
+	</section>
+
+	<section class="ra-search">
+		<h2>Contacts search:</h2>
+		<input type="text" class="form-control" name="raSearch" id="raSearch" data-ng-model="mainCtrl.searchValue" />
+	</section>
+
+	<!--<div data-ui-view></div>-->
+
+	<footer>
+		<p>&copy; 2015 Pavel S</p>
+	</footer>
+
+</section>
+
+<script src="3dParty/angular/angular.min.js"></script>
+<script src="3dParty/ui-router/release/angular-ui-router.min.js"></script>
+<script src="app/client.js"></script>
+</body>
+</html>

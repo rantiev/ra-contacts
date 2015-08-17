@@ -1,0 +1,22 @@
+{
+  "name": "angular-phone-book",
+  "version": "0.0.1",
+  "authors": [
+    "Pavel Shlykov <rantie86@gmail.com>"
+  ],
+  "description": "App description goes here",
+  "main": "public/app/app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5"
+  }
+}
